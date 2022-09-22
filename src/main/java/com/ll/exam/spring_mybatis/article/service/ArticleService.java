@@ -3,6 +3,7 @@ package com.ll.exam.spring_mybatis.article.service;
 import com.ll.exam.spring_mybatis.article.dto.Article;
 import com.ll.exam.spring_mybatis.article.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
