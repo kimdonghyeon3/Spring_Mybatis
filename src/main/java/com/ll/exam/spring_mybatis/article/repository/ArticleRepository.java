@@ -25,8 +25,38 @@ public interface ArticleRepository {
             SET createDate = NOW(),
             modifyDate = NOW(),
             subject = #{subject},
-            content = #{content}'
+            content = #{content}
             </script>
             """)
-    void write(String subject, String content);
+    void write(@Param("subject") String subject, @Param("content") String content);
+
+    @Select("""
+            <script>
+            SELECT *
+            FROM article
+            where id = #{id}
+            </script>
+            """)
+    Article getArticleById(@Param("id") long id);
+
+    @Select("""
+            <script>
+            SELECT *
+            FROM article
+            where subject = #{subject}
+            </script>
+            """)
+    Article getArticleBySubject(String subject);
+
+    @Select("""
+            <script>
+            SELECT *
+            FROM article
+            where 1
+            <if test="s != ''">
+            AND subject LIKE CONCAT('%',#{s},'%')
+            </if>
+            </script>
+            """)
+    List<Article> search(String title, @Param("s") String s);
 }

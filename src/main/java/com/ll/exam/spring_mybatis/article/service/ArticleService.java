@@ -20,4 +20,16 @@ public class ArticleService {
     public void write(String subject, String content) {
         articleRepository.write(subject, content);
     }
+
+    public Article getArticleById(long id) {
+        return articleRepository.getArticleById(id);
+    }
+
+    public Article getArticleBySubject(String subject) {
+        return articleRepository.getArticleBySubject(subject);
+    }
+
+    public List<Article> search(String title, String s) {
+        return articleRepository.search(title, s);
+    }
 }
