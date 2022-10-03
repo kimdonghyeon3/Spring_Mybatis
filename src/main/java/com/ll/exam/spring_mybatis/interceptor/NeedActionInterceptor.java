@@ -1,5 +1,7 @@
 package com.ll.exam.spring_mybatis.interceptor;
 
+import com.ll.exam.spring_mybatis.base.rq.Rq;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -10,11 +12,16 @@ import javax.servlet.http.HttpSession;
 
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public class NeedActionInterceptor  implements HandlerInterceptor {
+
+    private final Rq rq;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.debug("NeedActionInterceptor::preHandle 실행됨");
+
+        log.debug("rq : " + rq + ", rq.count : " + rq.getCount());
 
         HttpSession session = request.getSession();
 
