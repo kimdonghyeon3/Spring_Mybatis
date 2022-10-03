@@ -30,10 +30,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         ir.excludePathPatterns("/error");
 
         ir = registry.addInterceptor(needActionInterceptor);
-        ir.addPathPatterns("/**");
-        ir.excludePathPatterns("/favicon.ico");
-        ir.excludePathPatterns("/resource/**");
-        ir.excludePathPatterns("/gen/**");
-        ir.excludePathPatterns("/error");
+        ir.addPathPatterns("/article/write");
     }
 }
