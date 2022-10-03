@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @Component
 @Slf4j
-public class BeforeActionInterceptor implements HandlerInterceptor {
+public class NeedActionInterceptor  implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        log.debug("BeforeActionInterceptor::preHandle 실행됨");
+        log.debug("NeedActionInterceptor::preHandle 실행됨");
 
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }
