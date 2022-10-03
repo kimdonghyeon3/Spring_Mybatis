@@ -21,15 +21,7 @@ public class NeedActionInterceptor  implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.debug("NeedActionInterceptor::preHandle 실행됨");
 
-        log.debug("rq : " + rq + ", rq.count : " + rq.getCount());
-
-        HttpSession session = request.getSession();
-
-        Long loginedMemberId = (Long) session.getAttribute("loginedMemberId");
-
-        boolean isLogined = loginedMemberId != null;
-
-        if(!isLogined){
+        if(rq.isLogout()){
             response.setCharacterEncoding("UTF-8");
             response.setContentType("text/html; charset=UTF-8");
             response.getWriter().append("로그인 후 이용바랍니다.");

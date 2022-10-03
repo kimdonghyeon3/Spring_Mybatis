@@ -1,0 +1,6 @@
+<script th:inline="javascript">
+    const alertMsg = [[${@rq.alertMsg}]];
+
+    alert(alertMsg);
+    history.back();
+</script>
