@@ -23,3 +23,6 @@ SET createDate = NOW(),
 modifyDate = NOW(),
 `subject` = '제목2',
 content = '내용2';
+
+ALTER TABLE article
+ADD COLUMN member_id BIGINT UNSIGEND NOT NULL AFTER modifyDate;
